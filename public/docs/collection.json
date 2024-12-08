@@ -1,0 +1,3270 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "https:\/\/flutter-app.test\/"
+        }
+    ],
+    "info": {
+        "name": "Flutter Application ",
+        "_postman_id": "26a46a7e-32e9-4b6b-8e58-992cf8a17d3c",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "About",
+            "description": "",
+            "item": [
+                {
+                    "name": "Force Delete About",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/about\/:about_id\/forceDelete",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/about\/:about_id\/forceDelete",
+                            "variable": [
+                                {
+                                    "id": "about_id",
+                                    "key": "about_id",
+                                    "value": "1",
+                                    "description": "The ID of the about."
+                                },
+                                {
+                                    "id": "about",
+                                    "key": "about",
+                                    "value": "1",
+                                    "description": "The ID of the About record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.force_deleted_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a list of trashed \"About\" items.\n\nGet All Abouts",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/about\/trashed",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "name",
+                                    "description": "Column to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "Order direction (asc\/desc). Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "20",
+                                    "description": "Number of items per page. Defaults to `10`.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/about\/trashed?orderBy=name&order=asc&perPage=20"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"success\": true,\n   \"message\": \"Retrieved successfully\",\n   \"data\": {\n       \"current_page\": 1,\n       \"data\": [\n           {\n               \"id\": 1,\n               \"name\": \"Deleted About Us\",\n               \"description\": \"This about section is trashed\",\n               \"image\": \"path\/to\/image.jpg\",\n               \"video\": \"path\/to\/video.mp4\"\n           }\n       ],\n       \"last_page\": 1,\n       \"per_page\": 10,\n       \"total\": 1\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Restore About",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/about\/:about\/restore",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/about\/:about\/restore",
+                            "variable": [
+                                {
+                                    "id": "about",
+                                    "key": "about",
+                                    "value": "1",
+                                    "description": "The about."
+                                },
+                                {
+                                    "id": "aboutId",
+                                    "key": "aboutId",
+                                    "value": "1",
+                                    "description": "The ID of the About record to restore."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.restored_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Abouts",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/about",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/about?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"About Us\",\n     \"description\": \"This is the about us section.\",\n     \"image\": \"https:\/\/example.com\/image.png\"\n     \"video\": \"https:\/\/example.com\/video.png\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add New About",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/about",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/about"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "pnegpshmhmulkqaqwm",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "This is the about us section.",
+                                    "type": "text",
+                                    "description": "The description of the about section."
+                                },
+                                {
+                                    "key": "image",
+                                    "value": "https:\/\/example.com\/image.png",
+                                    "type": "text",
+                                    "description": "nullable The URL of the image associated with the about section."
+                                },
+                                {
+                                    "key": "title",
+                                    "value": "About Us",
+                                    "type": "text",
+                                    "description": "The title of the about section."
+                                },
+                                {
+                                    "key": "video",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.created_successfully\",\n \"data\": {\n   \"id\": 1,\n   \"name\": \"About Us\",\n   \"description\": \"This is the about us section.\",\n   \"image\": \"https:\/\/example.com\/image.png\",\n   \"video\": \"https:\/\/example.com\/video.mp4\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"title\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get About By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/about\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/about\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the about."
+                                },
+                                {
+                                    "id": "about",
+                                    "key": "about",
+                                    "value": "1",
+                                    "description": "The ID of the About record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.retrieved_successfully\",\n \"data\": {\n   \"id\": 1,\n   \"name\": \"About Us\",\n   \"description\": \"This is the about us section.\",\n   \"image\": \"https:\/\/example.com\/image.png\",\n   \"videp\": \"https:\/\/example.com\/videp.mp4\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit About",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/about\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/about\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the about."
+                                },
+                                {
+                                    "id": "about",
+                                    "key": "about",
+                                    "value": "1",
+                                    "description": "The ID of the About record."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "pljn",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "This is the updated about us section.",
+                                    "type": "text",
+                                    "description": "The description of the about section."
+                                },
+                                {
+                                    "key": "image",
+                                    "value": "https:\/\/example.com\/updated_image.png",
+                                    "type": "text",
+                                    "description": "nullable The URL of the image associated with the about section."
+                                },
+                                {
+                                    "key": "title",
+                                    "value": "Updated About Us",
+                                    "type": "text",
+                                    "description": "The title of the about section."
+                                },
+                                {
+                                    "key": "video",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.updated_successfully\",\n \"data\": {\n   \"id\": 1,\n   \"name\": \"Updated About Us\",\n   \"description\": \"This is the updated about us section.\",\n   \"image\": \"https:\/\/example.com\/updated_image.png\",\n    \"video\": \"https:\/\/example.com\/updated_video.mp4\"\n\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"name\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete About",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/about\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/about\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the about."
+                                },
+                                {
+                                    "id": "about",
+                                    "key": "about",
+                                    "value": "1",
+                                    "description": "The ID of the About record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.deleted_successfully,\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get About By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/about\/:about_id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/client\/about\/:about_id",
+                            "variable": [
+                                {
+                                    "id": "about_id",
+                                    "key": "about_id",
+                                    "value": "1",
+                                    "description": "The ID of the about."
+                                },
+                                {
+                                    "id": "about",
+                                    "key": "about",
+                                    "value": "1",
+                                    "description": "The ID of the About record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.retrieved_successfully\",\n \"data\": {\n   \"id\": 1,\n   \"name\": \"About Us\",\n   \"description\": \"This is the about us section.\",\n   \"image\": \"https:\/\/example.com\/image.png\",\n   \"videp\": \"https:\/\/example.com\/videp.mp4\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "About ",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get All Abouts",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/about",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/client\/about?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"About Us\",\n     \"description\": \"This is the about us section.\",\n     \"image\": \"https:\/\/example.com\/image.png\"\n     \"video\": \"https:\/\/example.com\/video.png\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Achievement",
+            "description": "",
+            "item": [
+                {
+                    "name": "Force Delete Achievement",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/achievement\/:achievement_id\/forceDelete",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/achievement\/:achievement_id\/forceDelete",
+                            "variable": [
+                                {
+                                    "id": "achievement_id",
+                                    "key": "achievement_id",
+                                    "value": "1",
+                                    "description": "The ID of the achievement."
+                                },
+                                {
+                                    "id": "achievement",
+                                    "key": "achievement",
+                                    "value": "1",
+                                    "description": "The ID of the Achievement record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.force_deleted_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a list of trashed \"Achievement\" items.\n\nGet All Achievements",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/achievement\/trashed",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "name",
+                                    "description": "Column to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "Order direction (asc\/desc). Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "20",
+                                    "description": "Number of items per page. Defaults to `10`.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/achievement\/trashed?orderBy=name&order=asc&perPage=20"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"success\": true,\n   \"message\": \"Retrieved successfully\",\n   \"data\": {\n       \"current_page\": 1,\n       \"data\": [\n           {\n     \"id\": 1,\n      \"name\": \"Trashed Achievement\",\n      \"date\": \"2024-11-15\",\n      \"location\": \"Location\",\n      \"members\": \"Member\",\n      \"rank\": \"Rank\"\n   },\n       ],\n       \"last_page\": 1,\n       \"per_page\": 10,\n       \"total\": 1\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Restore Achievement",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/achievement\/:achievement\/restore",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/achievement\/:achievement\/restore",
+                            "variable": [
+                                {
+                                    "id": "achievement",
+                                    "key": "achievement",
+                                    "value": "1",
+                                    "description": "The achievement."
+                                },
+                                {
+                                    "id": "achievementId",
+                                    "key": "achievementId",
+                                    "value": "1",
+                                    "description": "The ID of the Achievement record to restore."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.restored_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Achievements",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/achievement",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/achievement?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n     \"id\": 1,\n      \"name\": \"Trashed Achievement\",\n      \"date\": \"2024-11-15\",\n      \"location\": \"Location\",\n      \"members\": \"Member\",\n      \"rank\": \"Rank\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add New Achievement",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/achievement",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/achievement"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"tfjketjnaeqk\",\"date\":\"2024-11-23T10:07:22\",\"location\":\"ogxtndfttijwuknvrf\",\"members\":55,\"rank\":\"kopiufcchjprvzlqom\",\"title\":\"Achievement Us\",\"description\":\"This is the Achievement us section.\",\"image\":\"https:\\\/\\\/example.com\\\/image.png\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.created_successfully\",\n \"data\": {\n    \"id\": 1,\n      \"name\": \"Trashed Achievement\",\n      \"date\": \"2024-11-15\",\n      \"location\": \"Location\",\n      \"members\": \"Member\",\n      \"rank\": \"Rank\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"title\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Achievements By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/achievement\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/achievement\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the achievement."
+                                },
+                                {
+                                    "id": "achievement",
+                                    "key": "achievement",
+                                    "value": "1",
+                                    "description": "The ID of the Achievement record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n     \"id\": 1,\n      \"name\": \"Trashed Achievement\",\n      \"date\": \"2024-11-15\",\n      \"location\": \"Location\",\n      \"members\": \"Member\",\n      \"rank\": \"Rank\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}\n  @response 404 {\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit Achievement",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/achievement\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/achievement\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the achievement."
+                                },
+                                {
+                                    "id": "achievement",
+                                    "key": "achievement",
+                                    "value": "1",
+                                    "description": "The ID of the Achievement record."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"jpgtmnqrarm\",\"date\":\"2024-11-23T10:07:22\",\"location\":\"uiqfxuvocdrwpzscsalcfjg\",\"members\":61,\"rank\":\"yosuodxcxudryoygghrmyhnzl\",\"title\":\"Updated Achievement Us\",\"description\":\"This is the updated Achievement us section.\",\"image\":\"https:\\\/\\\/example.com\\\/updated_image.png\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.updated_successfully\",\n \"data\": {\n    \"id\": 1,\n      \"name\": \"Trashed Achievement\",\n      \"date\": \"2024-11-15\",\n      \"location\": \"Location\",\n      \"members\": \"Member\",\n      \"rank\": \"Rank\"\n\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"name\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Achievement",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/achievement\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/achievement\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the achievement."
+                                },
+                                {
+                                    "id": "achievement",
+                                    "key": "achievement",
+                                    "value": "1",
+                                    "description": "The ID of the Achievement record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.deleted_successfully,\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Achievements",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/achievement",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/client\/achievement?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n     \"id\": 1,\n      \"name\": \"Trashed Achievement\",\n      \"date\": \"2024-11-15\",\n      \"location\": \"Location\",\n      \"members\": \"Member\",\n      \"rank\": \"Rank\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Achievements By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/achievement\/:achievement_id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/client\/achievement\/:achievement_id",
+                            "variable": [
+                                {
+                                    "id": "achievement_id",
+                                    "key": "achievement_id",
+                                    "value": "1",
+                                    "description": "The ID of the achievement."
+                                },
+                                {
+                                    "id": "achievement",
+                                    "key": "achievement",
+                                    "value": "1",
+                                    "description": "The ID of the Achievement record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n     \"id\": 1,\n      \"name\": \"Trashed Achievement\",\n      \"date\": \"2024-11-15\",\n      \"location\": \"Location\",\n      \"members\": \"Member\",\n      \"rank\": \"Rank\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}\n  @response 404 {\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Committee",
+            "description": "",
+            "item": [
+                {
+                    "name": "Force Delete Committee",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/committee\/:committee_id\/forceDelete",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/committee\/:committee_id\/forceDelete",
+                            "variable": [
+                                {
+                                    "id": "committee_id",
+                                    "key": "committee_id",
+                                    "value": "16",
+                                    "description": "The ID of the committee."
+                                },
+                                {
+                                    "id": "committee",
+                                    "key": "committee",
+                                    "value": "1",
+                                    "description": "The ID of the Committee record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.force_deleted_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a list of trashed \"Committee\" items.\n\nGet All Committees",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/committee\/trashed",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "name",
+                                    "description": "Column to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "Order direction (asc\/desc). Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "20",
+                                    "description": "Number of items per page. Defaults to `10`.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/committee\/trashed?orderBy=name&order=asc&perPage=20"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"success\": true,\n   \"message\": \"Retrieved successfully\",\n   \"data\": {\n       \"current_page\": 1,\n       \"data\": [\n           {\n\"id\": 16,\n\"name\": \"softwareeeee\",\n\"description\": \"none\",\n\"courses\": [\n{\n\"id\": 9,\n\"committee_id\": 16,\n\"course_name\": \"topic 8\",\n\"course_description\": \"des\",\n\"link\": \"https:\/\/www.youtube.com\/watch?v=MDhEzdmYRPA\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:22:24.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n],\n\"aboutUs\": {\n\"id\": 7,\n\"committee_id\": 16,\n\"description\": \"whhhhyyyy\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:21:41.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n           }\n       ],\n       \"last_page\": 1,\n       \"per_page\": 10,\n       \"total\": 1\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Restore Committee",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/committee\/:committee\/restore",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/committee\/:committee\/restore",
+                            "variable": [
+                                {
+                                    "id": "committee",
+                                    "key": "committee",
+                                    "value": "16",
+                                    "description": "The committee."
+                                },
+                                {
+                                    "id": "committeeId",
+                                    "key": "committeeId",
+                                    "value": "1",
+                                    "description": "The ID of the Committee record to restore."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.restored_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Committees",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/committee",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/committee?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n      \"id\": 1,\n\"name\": \"softwareeeee\",\n\"description\": \"none\",\n\"courses\": [\n{\n\"id\": 9,\n\"committee_id\": 16,\n\"course_name\": \"topic 8\",\n\"course_description\": \"des\",\n\"link\": \"https:\/\/www.youtube.com\/watch?v=MDhEzdmYRPA\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:22:24.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n],\n\"aboutUs\": {\n\"id\": 7,\n\"committee_id\": 16,\n\"description\": \"whhhhyyyy\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:21:41.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add New Committee",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/committee",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/committee"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"aprysn\",\"description\":\"This is the Committee us section.\",\"about_us\":\"q\",\"courses\":[{\"course_name\":\"i\",\"course_description\":\"ofoiabifpurh\",\"link\":\"qzfrsxqxbr\"}],\"title\":\"Committee Us\",\"image\":\"https:\\\/\\\/example.com\\\/image.png\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.created_successfully\",\n \"data\": {\n   \"id\": 16,\n\"name\": \"softwareeeee\",\n\"description\": \"none\",\n\"courses\": [\n{\n\"id\": 9,\n\"committee_id\": 16,\n\"course_name\": \"topic 8\",\n\"course_description\": \"des\",\n\"link\": \"https:\/\/www.youtube.com\/watch?v=MDhEzdmYRPA\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:22:24.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n],\n\"aboutUs\": {\n\"id\": 7,\n\"committee_id\": 16,\n\"description\": \"whhhhyyyy\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:21:41.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"title\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Committee By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/committee\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/committee\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the committee."
+                                },
+                                {
+                                    "id": "committee",
+                                    "key": "committee",
+                                    "value": "1",
+                                    "description": "The ID of the Committee record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.retrieved_successfully\",\n \"data\": {\n   \"id\": 16,\n\"name\": \"softwareeeee\",\n\"description\": \"none\",\n\"courses\": [\n{\n\"id\": 9,\n\"committee_id\": 16,\n\"course_name\": \"topic 8\",\n\"course_description\": \"des\",\n\"link\": \"https:\/\/www.youtube.com\/watch?v=MDhEzdmYRPA\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:22:24.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n],\n\"aboutUs\": {\n\"id\": 7,\n\"committee_id\": 16,\n\"description\": \"whhhhyyyy\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:21:41.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit Committee",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/committee\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/committee\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the committee."
+                                },
+                                {
+                                    "id": "committee",
+                                    "key": "committee",
+                                    "value": "1",
+                                    "description": "The ID of the Committee record."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"leeqcvgtaomhokgilsn\",\"description\":\"This is the updated Committee us section.\",\"about_us\":\"e\",\"courses\":[{\"course_name\":\"ultiel\",\"course_description\":\"vfdoogcenmzk\",\"link\":\"nooxjgiiguxnxfz\"}],\"title\":\"Updated Committee Us\",\"image\":\"https:\\\/\\\/example.com\\\/updated_image.png\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.updated_successfully\",\n \"data\": {\n   \"id\": 16,\n\"name\": \"softwareeeee\",\n\"description\": \"none\",\n\"courses\": [\n{\n\"id\": 9,\n\"committee_id\": 16,\n\"course_name\": \"topic 8\",\n\"course_description\": \"des\",\n\"link\": \"https:\/\/www.youtube.com\/watch?v=MDhEzdmYRPA\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:22:24.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n],\n\"aboutUs\": {\n\"id\": 7,\n\"committee_id\": 16,\n\"description\": \"whhhhyyyy\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:21:41.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"name\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Committee",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/committee\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/committee\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the committee."
+                                },
+                                {
+                                    "id": "committee",
+                                    "key": "committee",
+                                    "value": "1",
+                                    "description": "The ID of the Committee record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.deleted_successfully,\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Committees",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/committee",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/client\/committee?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n      \"id\": 1,\n\"name\": \"softwareeeee\",\n\"description\": \"none\",\n\"courses\": [\n{\n\"id\": 9,\n\"committee_id\": 16,\n\"course_name\": \"topic 8\",\n\"course_description\": \"des\",\n\"link\": \"https:\/\/www.youtube.com\/watch?v=MDhEzdmYRPA\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:22:24.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n],\n\"aboutUs\": {\n\"id\": 7,\n\"committee_id\": 16,\n\"description\": \"whhhhyyyy\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:21:41.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Committee By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/committee\/:committee_id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/client\/committee\/:committee_id",
+                            "variable": [
+                                {
+                                    "id": "committee_id",
+                                    "key": "committee_id",
+                                    "value": "16",
+                                    "description": "The ID of the committee."
+                                },
+                                {
+                                    "id": "committee",
+                                    "key": "committee",
+                                    "value": "1",
+                                    "description": "The ID of the Committee record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.retrieved_successfully\",\n \"data\": {\n   \"id\": 16,\n\"name\": \"softwareeeee\",\n\"description\": \"none\",\n\"courses\": [\n{\n\"id\": 9,\n\"committee_id\": 16,\n\"course_name\": \"topic 8\",\n\"course_description\": \"des\",\n\"link\": \"https:\/\/www.youtube.com\/watch?v=MDhEzdmYRPA\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:22:24.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n],\n\"aboutUs\": {\n\"id\": 7,\n\"committee_id\": 16,\n\"description\": \"whhhhyyyy\",\n\"deleted_at\": null,\n\"created_at\": \"2024-11-22T10:21:41.000000Z\",\n\"updated_at\": \"2024-11-22T10:22:24.000000Z\"\n}\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "User login",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/user\/login",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/user\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"user@example.com\",\"password\":\"password123\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"Login successful\",\n \"data\": {\n   \"token\": \"jwt-token\",\n   \"user\": { \"id\": 1, \"name\": \"John Doe\", \"email\": \"user@example.com\" }\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n \"message\": \"Unauthorized\",\n \"errors\": { \"email\": [\"The email field is required.\"] }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "User logout",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/user\/logout",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/user\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"Logged out successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n \"message\": \"Unknown error\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get current authenticated user",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/user\/me",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/user\/me"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"Data retrieved successfully\",\n \"data\": {\n   \"user\": { \"id\": 1, \"name\": \"John Doe\", \"email\": \"user@example.com\" }\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Send OTP for password reset",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/user\/forgot-password",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/user\/forgot-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"user@example.com\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"OTP sent successfully\",\n \"data\": { \"id\": 1, \"otp\": 123456, \"expires_at\": \"2024-11-22 10:00:00\" }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Home",
+            "description": "",
+            "item": [
+                {
+                    "name": "Force Delete Home",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/home\/:home_id\/forceDelete",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/home\/:home_id\/forceDelete",
+                            "variable": [
+                                {
+                                    "id": "home_id",
+                                    "key": "home_id",
+                                    "value": "1",
+                                    "description": "The ID of the home."
+                                },
+                                {
+                                    "id": "home",
+                                    "key": "home",
+                                    "value": "1",
+                                    "description": "The ID of the Home record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.force_deleted_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a list of trashed \"Home\" items.\n\nGet All Homes",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/home\/trashed",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "name",
+                                    "description": "Column to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "Order direction (asc\/desc). Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "20",
+                                    "description": "Number of items per page. Defaults to `10`.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/home\/trashed?orderBy=name&order=asc&perPage=20"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"success\": true,\n   \"message\": \"Retrieved successfully\",\n   \"data\": {\n       \"current_page\": 1,\n       \"data\": [\n           {\n               \"id\": 1,\n\"description\": \"testt\",\n\"image\": \"\/storage\/homes\/obEW41SmYe.png\"\n           }\n       ],\n       \"last_page\": 1,\n       \"per_page\": 10,\n       \"total\": 1\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Restore Home",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/home\/:home\/restore",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/home\/:home\/restore",
+                            "variable": [
+                                {
+                                    "id": "home",
+                                    "key": "home",
+                                    "value": "1",
+                                    "description": "The home."
+                                },
+                                {
+                                    "id": "homeId",
+                                    "key": "homeId",
+                                    "value": "1",
+                                    "description": "The ID of the Home record to restore."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.restored_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Homes",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/home",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/home?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n    \"id\": 1,\n\"description\": \"testt\",\n\"image\": \"\/storage\/homes\/obEW41SmYe.png\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add New Home",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/home",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/home"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"description\":\"This is the Home us section.\",\"image\":\"https:\\\/\\\/example.com\\\/image.png\",\"title\":\"Home Us\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.created_successfully\",\n \"data\": {\n  \"id\": 1,\n\"description\": \"testt\",\n\"image\": \"\/storage\/homes\/obEW41SmYe.png\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"title\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Home By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/home\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/home\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the home."
+                                },
+                                {
+                                    "id": "home",
+                                    "key": "home",
+                                    "value": "1",
+                                    "description": "The ID of the Home record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.retrieved_successfully\",\n \"data\": {\n  \"id\": 1,\n\"description\": \"testt\",\n\"image\": \"\/storage\/homes\/obEW41SmYe.png\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit Home",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/home\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/home\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the home."
+                                },
+                                {
+                                    "id": "home",
+                                    "key": "home",
+                                    "value": "1",
+                                    "description": "The ID of the Home record."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"description\":\"This is the updated Home us section.\",\"image\":\"https:\\\/\\\/example.com\\\/updated_image.png\",\"title\":\"Updated Home Us\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.updated_successfully\",\n \"data\": {\n  \"id\": 1,\n\"description\": \"testt\",\n\"image\": \"\/storage\/homes\/obEW41SmYe.png\"\n\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"name\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Home",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/home\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/home\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the home."
+                                },
+                                {
+                                    "id": "home",
+                                    "key": "home",
+                                    "value": "1",
+                                    "description": "The ID of the Home record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.deleted_successfully,\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Homes",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/home",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/client\/home?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n    \"id\": 1,\n\"description\": \"testt\",\n\"image\": \"\/storage\/homes\/obEW41SmYe.png\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Home By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/home\/:home_id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/client\/home\/:home_id",
+                            "variable": [
+                                {
+                                    "id": "home_id",
+                                    "key": "home_id",
+                                    "value": "1",
+                                    "description": "The ID of the home."
+                                },
+                                {
+                                    "id": "home",
+                                    "key": "home",
+                                    "value": "1",
+                                    "description": "The ID of the Home record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.retrieved_successfully\",\n \"data\": {\n  \"id\": 1,\n\"description\": \"testt\",\n\"image\": \"\/storage\/homes\/obEW41SmYe.png\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Member",
+            "description": "",
+            "item": [
+                {
+                    "name": "Force Delete Member",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/member\/:member_id\/forceDelete",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/member\/:member_id\/forceDelete",
+                            "variable": [
+                                {
+                                    "id": "member_id",
+                                    "key": "member_id",
+                                    "value": "1",
+                                    "description": "The ID of the member."
+                                },
+                                {
+                                    "id": "member",
+                                    "key": "member",
+                                    "value": "1",
+                                    "description": "The ID of the Member record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.force_deleted_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a list of trashed \"Member\" items.\n\nGet All Members",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/member\/trashed",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "name",
+                                    "description": "Column to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "Order direction (asc\/desc). Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "20",
+                                    "description": "Number of items per page. Defaults to `10`.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/member\/trashed?orderBy=name&order=asc&perPage=20"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"success\": true,\n   \"message\": \"Retrieved successfully\",\n   \"data\": {\n       \"current_page\": 1,\n       \"data\": [\n           {\"id\": 1,\n\"name\": \"Shahd Sayed\",\n\"description\": \"shahd SAyed\",\n\"role\": \"CFO\",\n\"link1\": \"https:\/\/www.facebook.com\/\",\n\"link2\": \"https:\/\/web.whatsapp.com\/\",\n\"link3\": \"https:\/\/www.linkedin.com\/in\/shahd-sayed-2766a7278\/\",\n\"image\": \"\/storage\/members\/BGrwz13J5N.png\"\n           }\n       ],\n       \"last_page\": 1,\n       \"per_page\": 10,\n       \"total\": 1\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Restore Member",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/member\/:member\/restore",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/member\/:member\/restore",
+                            "variable": [
+                                {
+                                    "id": "member",
+                                    "key": "member",
+                                    "value": "1",
+                                    "description": "The member."
+                                },
+                                {
+                                    "id": "memberId",
+                                    "key": "memberId",
+                                    "value": "1",
+                                    "description": "The ID of the Member record to restore."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.restored_successfully\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Members",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/member",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/admin\/member?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n     \"id\": 1,\n\"name\": \"Shahd Sayed\",\n\"description\": \"shahd SAyed\",\n\"role\": \"CFO\",\n\"link1\": \"https:\/\/www.facebook.com\/\",\n\"link2\": \"https:\/\/web.whatsapp.com\/\",\n\"link3\": \"https:\/\/www.linkedin.com\/in\/shahd-sayed-2766a7278\/\",\n\"image\": \"\/storage\/members\/BGrwz13J5N.png\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add New Member",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/member",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/member"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"szkq\",\"role\":\"ecdexgxq\",\"description\":\"This is the Member us section.\",\"image\":\"https:\\\/\\\/example.com\\\/image.png\",\"link1\":\"rekeoqnidpibyaoxo\",\"link2\":\"chk\",\"link3\":\"elalxqhwzsz\",\"title\":\"Member Us\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.created_successfully\",\n \"data\": {\n \"id\": 1,\n\"name\": \"Shahd Sayed\",\n\"description\": \"shahd SAyed\",\n\"role\": \"CFO\",\n\"link1\": \"https:\/\/www.facebook.com\/\",\n\"link2\": \"https:\/\/web.whatsapp.com\/\",\n\"link3\": \"https:\/\/www.linkedin.com\/in\/shahd-sayed-2766a7278\/\",\n\"image\": \"\/storage\/members\/BGrwz13J5N.png\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"title\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Member By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/member\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/member\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the member."
+                                },
+                                {
+                                    "id": "member",
+                                    "key": "member",
+                                    "value": "1",
+                                    "description": "The ID of the Member record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.retrieved_successfully\",\n \"data\": {\n  \"id\": 1,\n\"name\": \"Shahd Sayed\",\n\"description\": \"shahd SAyed\",\n\"role\": \"CFO\",\n\"link1\": \"https:\/\/www.facebook.com\/\",\n\"link2\": \"https:\/\/web.whatsapp.com\/\",\n\"link3\": \"https:\/\/www.linkedin.com\/in\/shahd-sayed-2766a7278\/\",\n\"image\": \"\/storage\/members\/BGrwz13J5N.png\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit Member",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/member\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/member\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the member."
+                                },
+                                {
+                                    "id": "member",
+                                    "key": "member",
+                                    "value": "1",
+                                    "description": "The ID of the Member record."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"smdrzgizsjilvzolkzagixigr\",\"role\":\"mwwbrnohkqicvfsdeowu\",\"description\":\"This is the updated Member us section.\",\"image\":\"https:\\\/\\\/example.com\\\/updated_image.png\",\"link1\":\"od\",\"link2\":\"rpwzpvuqt\",\"link3\":\"idrndcpdzczkvibgavdcpg\",\"title\":\"Updated Member Us\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.updated_successfully\",\n \"data\": {\n \"id\": 1,\n\"name\": \"Shahd Sayed\",\n\"description\": \"shahd SAyed\",\n\"role\": \"CFO\",\n\"link1\": \"https:\/\/www.facebook.com\/\",\n\"link2\": \"https:\/\/web.whatsapp.com\/\",\n\"link3\": \"https:\/\/www.linkedin.com\/in\/shahd-sayed-2766a7278\/\",\n\"image\": \"\/storage\/members\/BGrwz13J5N.png\"\n\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"success\": false,\n \"message\": \"Validation error\",\n \"data\": {\n   \"name\": [\"The title field is required.\"],\n   \"description\": [\"The description field is required.\"]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Member",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/admin\/member\/:id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/admin\/member\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the member."
+                                },
+                                {
+                                    "id": "member",
+                                    "key": "member",
+                                    "value": "1",
+                                    "description": "The ID of the Member record."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.deleted_successfully,\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n \"success\": false,\n \"message\": \"Deleting error\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get All Members",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/member",
+                            "query": [
+                                {
+                                    "key": "orderBy",
+                                    "value": "title",
+                                    "description": "The field to order by. Defaults to `created_at`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "The order direction. Can be `asc` or `desc`. Defaults to `desc`.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "15",
+                                    "description": "The number of records per page. Defaults to 10.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://flutter-app.test/\/api\/client\/member?orderBy=title&order=asc&perPage=15"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\":'messages.retrieved_successfully',\n \"data\": [\n   {\n     \"id\": 1,\n\"name\": \"Shahd Sayed\",\n\"description\": \"shahd SAyed\",\n\"role\": \"CFO\",\n\"link1\": \"https:\/\/www.facebook.com\/\",\n\"link2\": \"https:\/\/web.whatsapp.com\/\",\n\"link3\": \"https:\/\/www.linkedin.com\/in\/shahd-sayed-2766a7278\/\",\n\"image\": \"\/storage\/members\/BGrwz13J5N.png\"\n   },\n   ...\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Member By Id",
+                    "request": {
+                        "url": {
+                            "host": "https://flutter-app.test/",
+                            "path": "api\/client\/member\/:member_id",
+                            "query": [],
+                            "raw": "https://flutter-app.test/\/api\/client\/member\/:member_id",
+                            "variable": [
+                                {
+                                    "id": "member_id",
+                                    "key": "member_id",
+                                    "value": "1",
+                                    "description": "The ID of the member."
+                                },
+                                {
+                                    "id": "member",
+                                    "key": "member",
+                                    "value": "1",
+                                    "description": "The ID of the Member record."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"success\": true,\n \"message\": \"messages.retrieved_successfully\",\n \"data\": {\n  \"id\": 1,\n\"name\": \"Shahd Sayed\",\n\"description\": \"shahd SAyed\",\n\"role\": \"CFO\",\n\"link1\": \"https:\/\/www.facebook.com\/\",\n\"link2\": \"https:\/\/web.whatsapp.com\/\",\n\"link3\": \"https:\/\/www.linkedin.com\/in\/shahd-sayed-2766a7278\/\",\n\"image\": \"\/storage\/members\/BGrwz13J5N.png\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"success\": false,\n \"message\": \"Not allowed\",\n \"data\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"success\": false,\n \"message\": \"Record not found\",\n \"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

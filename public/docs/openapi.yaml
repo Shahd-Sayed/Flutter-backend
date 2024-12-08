@@ -1,0 +1,1673 @@
+openapi: 3.0.3
+info:
+  title: 'Flutter Application '
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://flutter-app.test'
+paths:
+  '/api/admin/home/{home_id}/forceDelete':
+    delete:
+      summary: 'force-delete a specific item.'
+      operationId: forceDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: home_id
+        description: 'The ID of the home.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/home/trashed:
+    get:
+      summary: 'Display a listing of Trashed Home items.'
+      operationId: displayAListingOfTrashedHomeItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/home/trashed could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/home/trashed could not be found.'
+      tags:
+        - Admin
+      security: []
+  '/api/admin/home/{home}/restore':
+    post:
+      summary: 'restore a specific item from Trashed list.'
+      operationId: restoreASpecificItemFromTrashedList
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: home
+        description: 'The home.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/home:
+    get:
+      summary: 'Display a listing of Home items.'
+      operationId: displayAListingOfHomeItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/home could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/home could not be found.'
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a new Home item.'
+      operationId: storeANewHomeItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: 'Must not be greater than 200000000 characters.'
+                  example: 'Nesciunt ducimus quisquam vel magni rerum dignissimos.'
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 10240 kilobytes.'
+                  nullable: true
+              required:
+                - description
+      security: []
+  '/api/admin/home/{id}':
+    get:
+      summary: 'Display a specific Home item.'
+      operationId: displayASpecificHomeItem
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/home/1 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/home/1 could not be found.'
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update a specific item.'
+      operationId: updateASpecificItem
+      description: '@method PUT'
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: 'Must not be greater than 200000000 characters.'
+                  example: 'Fugiat accusantium nam quia id dolores.'
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 10240 kilobytes.'
+                  nullable: true
+              required:
+                - description
+      security: []
+    delete:
+      summary: 'soft-delete a specific item.'
+      operationId: softDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the home.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/admin/achievement/{achievement_id}/forceDelete':
+    delete:
+      summary: 'force-delete a specific item.'
+      operationId: forceDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: achievement_id
+        description: 'The ID of the achievement.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/achievement/trashed:
+    get:
+      summary: 'Display a listing of Trashed Achievement items.'
+      operationId: displayAListingOfTrashedAchievementItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/achievement/trashed could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/achievement/trashed could not be found.'
+      tags:
+        - Admin
+      security: []
+  '/api/admin/achievement/{achievement}/restore':
+    post:
+      summary: 'restore a specific item from Trashed list.'
+      operationId: restoreASpecificItemFromTrashedList
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: achievement
+        description: 'The achievement.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/achievement:
+    get:
+      summary: 'Display a listing of Achievement items.'
+      operationId: displayAListingOfAchievementItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/achievement could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/achievement could not be found.'
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a new Achievement item.'
+      operationId: storeANewAchievementItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: iczwmdhdkhdlyzjd
+                  nullable: false
+                date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-11-23T11:08:38'
+                  nullable: false
+                location:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ibsfn
+                  nullable: true
+                members:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 11
+                  nullable: true
+                rank:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: v
+                  nullable: false
+              required:
+                - name
+                - date
+                - rank
+      security: []
+  '/api/admin/achievement/{id}':
+    get:
+      summary: 'Display a specific Achievement item.'
+      operationId: displayASpecificAchievementItem
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/achievement/1 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/achievement/1 could not be found.'
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update a specific item.'
+      operationId: updateASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: sggouuciplnxpgx
+                  nullable: false
+                date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-11-23T11:08:38'
+                  nullable: false
+                location:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: z
+                  nullable: true
+                members:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 77
+                  nullable: true
+                rank:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: nyltchsynlbdb
+                  nullable: false
+              required:
+                - name
+                - date
+                - rank
+      security: []
+    delete:
+      summary: 'soft-delete a specific item.'
+      operationId: softDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the achievement.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/admin/member/{member_id}/forceDelete':
+    delete:
+      summary: 'force-delete a specific item.'
+      operationId: forceDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: member_id
+        description: 'The ID of the member.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/member/trashed:
+    get:
+      summary: 'Display a listing of Trashed Member items.'
+      operationId: displayAListingOfTrashedMemberItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/member/trashed could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/member/trashed could not be found.'
+      tags:
+        - Admin
+      security: []
+  '/api/admin/member/{member}/restore':
+    post:
+      summary: 'restore a specific item from Trashed list.'
+      operationId: restoreASpecificItemFromTrashedList
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: member
+        description: 'The member.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/member:
+    get:
+      summary: 'Display a listing of Member items.'
+      operationId: displayAListingOfMemberItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/member could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/member could not be found.'
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a new Member item.'
+      operationId: storeANewMemberItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: kewmzaavg
+                  nullable: false
+                role:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: usvgsjfh
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 200000000 characters.'
+                  example: 'Ut et aut quam deserunt illo accusantium velit voluptas.'
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 10240 kilobytes.'
+                  nullable: true
+                link1:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: zpkepkagfrzybkdbcashlonut
+                  nullable: true
+                link2:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: dfimpjm
+                  nullable: true
+                link3:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: uqcpgwqupyspjawa
+                  nullable: true
+              required:
+                - name
+                - role
+                - description
+      security: []
+  '/api/admin/member/{id}':
+    get:
+      summary: 'Display a specific Member item.'
+      operationId: displayASpecificMemberItem
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/member/1 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/member/1 could not be found.'
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update a specific item.'
+      operationId: updateASpecificItem
+      description: '@method PUT'
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: m
+                  nullable: false
+                role:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: gvwdmixgmdnzyyutteaje
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 200000000 characters.'
+                  example: 'Officia est possimus omnis amet est repellat minus.'
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 10240 kilobytes.'
+                  nullable: true
+                link1:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: sbxrpcstoat
+                  nullable: true
+                link2:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: osig
+                  nullable: true
+                link3:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: jaifkgsngwwljfmns
+                  nullable: true
+              required:
+                - name
+                - role
+                - description
+      security: []
+    delete:
+      summary: 'soft-delete a specific item.'
+      operationId: softDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the member.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/admin/about/{about_id}/forceDelete':
+    delete:
+      summary: 'force-delete a specific item.'
+      operationId: forceDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: about_id
+        description: 'The ID of the about.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/about/trashed:
+    get:
+      summary: 'Display a listing of Trashed About items.'
+      operationId: displayAListingOfTrashedAboutItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/about/trashed could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/about/trashed could not be found.'
+      tags:
+        - Admin
+      security: []
+  '/api/admin/about/{about}/restore':
+    post:
+      summary: 'restore a specific item from Trashed list.'
+      operationId: restoreASpecificItemFromTrashedList
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: about
+        description: 'The about.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/about:
+    get:
+      summary: 'Display a listing of About items.'
+      operationId: displayAListingOfAboutItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/about could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/about could not be found.'
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a new About item.'
+      operationId: storeANewAboutItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mbljzanrjfpvygaqpolrskmf
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 200000000 characters.'
+                  example: 'Ex nemo totam dolorem.'
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 10240 kilobytes.'
+                  nullable: true
+                video:
+                  type: string
+                  format: binary
+                  description: 'Must be a file. Must not be greater than 51220000 kilobytes.'
+                  nullable: true
+              required:
+                - name
+                - description
+      security: []
+  '/api/admin/about/{id}':
+    get:
+      summary: 'Display a specific About item.'
+      operationId: displayASpecificAboutItem
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/about/1 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/about/1 could not be found.'
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update a specific item.'
+      operationId: updateASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ai
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 200000000 characters.'
+                  example: 'Dolorem sed doloremque mollitia.'
+                  nullable: true
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 10240 kilobytes.'
+                  nullable: true
+                video:
+                  type: string
+                  format: binary
+                  description: 'Must be a file. Must not be greater than 51200 kilobytes.'
+                  nullable: true
+              required:
+                - name
+      security: []
+    delete:
+      summary: 'soft-delete a specific item.'
+      operationId: softDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the about.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/admin/committee/{committee_id}/forceDelete':
+    delete:
+      summary: 'force-delete a specific item.'
+      operationId: forceDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: committee_id
+        description: 'The ID of the committee.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/admin/committee/trashed:
+    get:
+      summary: 'Display a listing of Trashed Committee items.'
+      operationId: displayAListingOfTrashedCommitteeItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/committee/trashed could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/committee/trashed could not be found.'
+      tags:
+        - Admin
+      security: []
+  '/api/admin/committee/{committee}/restore':
+    post:
+      summary: 'restore a specific item from Trashed list.'
+      operationId: restoreASpecificItemFromTrashedList
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: committee
+        description: 'The committee.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/admin/committee:
+    get:
+      summary: 'Display a listing of Committee items.'
+      operationId: displayAListingOfCommitteeItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/committee could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/committee could not be found.'
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a new Committee item.'
+      operationId: storeANewCommitteeItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ggudw
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 1000 characters.'
+                  example: 'Est vel totam quia fugit culpa.'
+                  nullable: true
+                courses:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    nullable: true
+                    properties:
+                      course_name:
+                        type: string
+                        description: 'Must not be greater than 255 characters.'
+                        example: johqpsilrcknzfcyawa
+                        nullable: false
+                      course_description:
+                        type: string
+                        description: 'Must not be greater than 20000000 characters.'
+                        example: zxomuyxqkvcqxxfcd
+                        nullable: true
+                      link:
+                        type: string
+                        description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                        example: xrarwnmnu
+                        nullable: true
+                    required:
+                      - course_name
+                about_us:
+                  type: string
+                  description: 'Must not be greater than 1000 characters.'
+                  example: smjpqehfatxnqnwzclig
+                  nullable: true
+              required:
+                - name
+      security: []
+  '/api/admin/committee/{id}':
+    get:
+      summary: 'Display a specific Committee item.'
+      operationId: displayASpecificCommitteeItem
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/admin/committee/16 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/admin/committee/16 could not be found.'
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update a specific item.'
+      operationId: updateASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: oeubexdchlsydezw
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 1000 characters.'
+                  example: 'Repellendus officia dolorem error a nam ducimus et.'
+                  nullable: true
+                courses:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    nullable: true
+                    properties:
+                      course_name:
+                        type: string
+                        description: 'Must not be greater than 255 characters.'
+                        example: zphhllsugypbilgmtqgpm
+                        nullable: false
+                      course_description:
+                        type: string
+                        description: 'Must not be greater than 1000 characters.'
+                        example: qslbniezuhsx
+                        nullable: true
+                      link:
+                        type: string
+                        description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                        example: wnhtugzmge
+                        nullable: true
+                    required:
+                      - course_name
+                about_us:
+                  type: string
+                  description: 'Must not be greater than 1000 characters.'
+                  example: vwrccgtkspnsceyqpsxvs
+                  nullable: true
+              required:
+                - name
+      security: []
+    delete:
+      summary: 'soft-delete a specific item.'
+      operationId: softDeleteASpecificItem
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the committee.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/admin/user/login:
+    post:
+      summary: 'User login'
+      operationId: userLogin
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Login successful'
+                  data:
+                    token: example_token
+                    user:
+                      id: 1
+                      name: 'John Doe'
+                      email: user@example.com
+                      phone_number: '123456789'
+                      image: 'http://example.com/image.jpg'
+                properties:
+                  message:
+                    type: string
+                    example: 'Login successful'
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        example: example_token
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'John Doe'
+                          email:
+                            type: string
+                            example: user@example.com
+                          phone_number:
+                            type: string
+                            example: '123456789'
+                          image:
+                            type: string
+                            example: 'http://example.com/image.jpg'
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Login failed'
+                  errors:
+                    email:
+                      - 'Invalid credentials'
+                properties:
+                  message:
+                    type: string
+                    example: 'Login failed'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'Invalid credentials'
+                        items:
+                          type: string
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: "The user's email address."
+                  example: user@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: "The user's password."
+                  example: password123
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/admin/user/logout:
+    post:
+      summary: 'User logout'
+      operationId: userLogout
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Logout successful'
+                properties:
+                  message:
+                    type: string
+                    example: 'Logout successful'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'An unknown error occurred'
+                properties:
+                  message:
+                    type: string
+                    example: 'An unknown error occurred'
+      tags:
+        - Auth
+      security: []
+  /api/admin/user/me:
+    get:
+      summary: 'Get logged-in user info'
+      operationId: getLoggedInUserInfo
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Retrieved successfully'
+                  data:
+                    user:
+                      id: 1
+                      name: 'John Doe'
+                      email: user@example.com
+                      phone_number: '123456789'
+                      image: 'http://example.com/image.jpg'
+                properties:
+                  message:
+                    type: string
+                    example: 'Retrieved successfully'
+                  data:
+                    type: object
+                    properties:
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'John Doe'
+                          email:
+                            type: string
+                            example: user@example.com
+                          phone_number:
+                            type: string
+                            example: '123456789'
+                          image:
+                            type: string
+                            example: 'http://example.com/image.jpg'
+      tags:
+        - Auth
+      security: []
+  /api/admin/user/register:
+    post:
+      summary: 'Create a new account'
+      operationId: createANewAccount
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Registration successful'
+                  data:
+                    token: example_token
+                    user:
+                      id: 1
+                      name: 'John Doe'
+                      email: user@example.com
+                      phone_number: '123456789'
+                      image: 'http://example.com/image.jpg'
+                properties:
+                  message:
+                    type: string
+                    example: 'Registration successful'
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        example: example_token
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'John Doe'
+                          email:
+                            type: string
+                            example: user@example.com
+                          phone_number:
+                            type: string
+                            example: '123456789'
+                          image:
+                            type: string
+                            example: 'http://example.com/image.jpg'
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the user.'
+                  example: 'John Doe'
+                  nullable: false
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: user@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password for the user.'
+                  example: password123
+                  nullable: false
+                phone_number:
+                  type: string
+                  description: "The user's phone number."
+                  example: '123456789'
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: "The user's profile picture."
+                  nullable: true
+              required:
+                - name
+                - email
+                - password
+                - phone_number
+                - image
+      security: []
+  /api/admin/user/forgot-password:
+    post:
+      summary: 'Forgot password - send OTP'
+      operationId: forgotPasswordSendOTP
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'OTP sent successfully'
+                  data:
+                    id: 1
+                    email: user@example.com
+                    otp: 123456
+                    expires_at: '2024-11-23T10:00:00Z'
+                properties:
+                  message:
+                    type: string
+                    example: 'OTP sent successfully'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      email:
+                        type: string
+                        example: user@example.com
+                      otp:
+                        type: integer
+                        example: 123456
+                      expires_at:
+                        type: string
+                        example: '2024-11-23T10:00:00Z'
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email address to send the OTP to.'
+                  example: user@example.com
+                  nullable: false
+              required:
+                - email
+      security: []
+  /api/client/about:
+    get:
+      summary: 'Display a listing of About items.'
+      operationId: displayAListingOfAboutItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/about could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/about could not be found.'
+      tags:
+        - Client
+      security: []
+  '/api/client/about/{about_id}':
+    get:
+      summary: 'Display a specific About item by Id.'
+      operationId: displayASpecificAboutItemById
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/about/1 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/about/1 could not be found.'
+      tags:
+        - Client
+      security: []
+    parameters:
+      -
+        in: path
+        name: about_id
+        description: 'The ID of the about.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/client/committee:
+    get:
+      summary: 'Display a listing of Committee items.'
+      operationId: displayAListingOfCommitteeItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/committee could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/committee could not be found.'
+      tags:
+        - Client
+      security: []
+  '/api/client/committee/{committee_id}':
+    get:
+      summary: 'Display a specific Committee item by Id.'
+      operationId: displayASpecificCommitteeItemById
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/committee/16 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/committee/16 could not be found.'
+      tags:
+        - Client
+      security: []
+    parameters:
+      -
+        in: path
+        name: committee_id
+        description: 'The ID of the committee.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/client/achievement:
+    get:
+      summary: 'Display a listing of Achievement items.'
+      operationId: displayAListingOfAchievementItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/achievement could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/achievement could not be found.'
+      tags:
+        - Client
+      security: []
+  '/api/client/achievement/{achievement_id}':
+    get:
+      summary: 'Display a specific Achievement item by Id.'
+      operationId: displayASpecificAchievementItemById
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/achievement/1 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/achievement/1 could not be found.'
+      tags:
+        - Client
+      security: []
+    parameters:
+      -
+        in: path
+        name: achievement_id
+        description: 'The ID of the achievement.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/client/home:
+    get:
+      summary: 'Display a listing of Home items.'
+      operationId: displayAListingOfHomeItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/home could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/home could not be found.'
+      tags:
+        - Client
+      security: []
+  '/api/client/home/{home_id}':
+    get:
+      summary: 'Display a specific Home item by Id.'
+      operationId: displayASpecificHomeItemById
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/home/1 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/home/1 could not be found.'
+      tags:
+        - Client
+      security: []
+    parameters:
+      -
+        in: path
+        name: home_id
+        description: 'The ID of the home.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/client/member:
+    get:
+      summary: 'Display a listing of Member items.'
+      operationId: displayAListingOfMemberItems
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/member could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/member could not be found.'
+      tags:
+        - Client
+      security: []
+  '/api/client/member/{member_id}':
+    get:
+      summary: 'Display a specific Member item by Id.'
+      operationId: displayASpecificMemberItemById
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/client/member/1 could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/client/member/1 could not be found.'
+      tags:
+        - Client
+      security: []
+    parameters:
+      -
+        in: path
+        name: member_id
+        description: 'The ID of the member.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Admin
+    description: ''
+  -
+    name: Auth
+    description: ''
+  -
+    name: Client
+    description: ''
